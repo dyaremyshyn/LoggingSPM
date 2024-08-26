@@ -4,20 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "LoggingSPM",
+    name: "LoggingSDK",
+    platforms: [
+        .iOS(.v15)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "LoggingSPM",
-            targets: ["LoggingSPM"]),
+            name: "LoggingSDK",
+            targets: ["LoggingSDK"]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "LoggingSPM"),
-        .testTarget(
-            name: "LoggingSPMTests",
-            dependencies: ["LoggingSPM"]),
+        .binaryTarget(name: "LoggingSDK", path: "./Sources/LoggingSDK.xcframework")
     ]
 )
